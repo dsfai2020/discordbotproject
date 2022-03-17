@@ -28,18 +28,20 @@ async def on_message(message):
     trehistory= [
         "The Raven Elite was formed during the PS3 ERA on MAG.  The game had 300 active players in 150 vs 150 battles.  Each squad had 8 players and 1 Squad Leader.  4 Squads made up 1 platoon.  Each platoon had 1 Platoon Leader.  1 Company had 4 platoons.  Each Company had 1 OIC Officer in Charge."]
 
-    squad= ["Sniper Class -- Falcon 8, Snake Eyes"]
+    roster= {'Falcon 8': 'Sniper', 'Rat 6': 'Flanker', 'Jaguar 9': 'Push Support'}
     
     if message.content == 'trehistory':
         response = random.choice(trehistory)
         await message.channel.send(response)
 
-    elif message.content == 'squad':
-        await message.channel.send(squad[0])
+    elif message.content == 'roster':
+        await message.channel.send(roster)
 
 # @client.event
 # async def on_message(message):
     # if 'happy birthday' in message.content.lower():
         # await message.channel.send('Happy Birthday!')
+
+# Use postional arguments in lists to access the list without any brackets.
 
 client.run(TOKEN)
