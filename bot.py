@@ -8,9 +8,10 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN=os.getenv('DISCORD_TOKEN')
 
-
+#This is the client Object
 client=discord.Client()
 
+#Triggers on client events
 @client.event
 async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
@@ -35,7 +36,9 @@ async def on_message(message):
         await message.channel.send(response)
 
     elif message.content == 'roster':
-        await message.channel.send(roster)
+        rosterprompt=['Which member of the TRE would you like to learn about?']
+        await message.channel.send(rosterprompt[0])
+
 
 # @client.event
 # async def on_message(message):
