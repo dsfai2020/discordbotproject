@@ -1,13 +1,14 @@
 import os
 import discord
 import random
+import pandas
 
 from dotenv import load_dotenv
 
 
+
 load_dotenv()
 TOKEN=os.getenv('DISCORD_TOKEN')
-
 
 client=discord.Client()
 
@@ -29,6 +30,10 @@ async def on_message(message):
         "The Raven Elite was formed during the PS3 ERA on MAG.  The game had 300 active players in 150 vs 150 battles.  Each squad had 8 players and 1 Squad Leader.  4 Squads made up 1 platoon.  Each platoon had 1 Platoon Leader.  1 Company had 4 platoons.  Each Company had 1 OIC Officer in Charge."]
 
     squad= ["Sniper Class -- Falcon 8, Snake Eyes"]
+
+    getcsv=pandas.read_csv("my_csv.csv")
+    df=pandas.DataFrame(getcsv)
+
     
     if message.content == 'trehistory':
         response = random.choice(trehistory)
@@ -36,6 +41,12 @@ async def on_message(message):
 
     elif message.content == 'squad':
         await message.channel.send(squad[0])
+
+    elif message.content == 'trekdr':
+        await message.channel.send(df[["Names", "KDR"]])
+
+    elif message.content == 'trescore':
+        await message.channel.send(df[["Names", "Avg Score"]])
 
 # @client.event
 # async def on_message(message):
