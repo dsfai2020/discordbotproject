@@ -10,10 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN=os.getenv('DISCORD_TOKEN')
 
-<<<<<<< HEAD
-=======
 #This is the client Object
->>>>>>> 3fd9bd64c47b65bdca033eb8aefd649fe98aba4e
 client=discord.Client()
 
 #Triggers on client events
@@ -34,15 +31,7 @@ async def on_message(message):
     trehistory= [
         "The Raven Elite was formed during the PS3 ERA on MAG.  The game had 300 active players in 150 vs 150 battles.  Each squad had 8 players and 1 Squad Leader.  4 Squads made up 1 platoon.  Each platoon had 1 Platoon Leader.  1 Company had 4 platoons.  Each Company had 1 OIC Officer in Charge."]
 
-<<<<<<< HEAD
-    squad= ["Sniper Class -- Falcon 8, Snake Eyes"]
-
-    getcsv=pandas.read_csv("my_csv.csv")
-    df=pandas.DataFrame(getcsv)
-
-=======
     roster= {'Falcon 8': 'Sniper', 'Rat 6': 'Flanker', 'Jaguar 9': 'Push Support'}
->>>>>>> 3fd9bd64c47b65bdca033eb8aefd649fe98aba4e
     
     if message.content == 'trehistory':
         response = random.choice(trehistory)
