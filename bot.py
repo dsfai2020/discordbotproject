@@ -45,13 +45,13 @@ async def on_message(message):
         await message.channel.send(rosterprompt[0])
 
     elif message.content == 'trekdr':
-        await message.channel.send(getcsv[["Names", "KDR"]])
+        await message.channel.send(getcsv[["Names", "KDR"]].sort_values(by='KDR', ascending=False))
 
     elif message.content == 'trescore':
-        await message.channel.send(getcsv[["Names", "Avg Score"]])
+        await message.channel.send(getcsv[["Names", "Avg Score"]].sort_values(by='Avg Score', ascending=False))
     
     elif message.content == 'trekills':
-        await message.channel.send(getcsv[['Names', 'Kills']].sort_values('Kills', ascending=False))
+        await message.channel.send(getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
 
 # @client.event
 # async def on_message(message):

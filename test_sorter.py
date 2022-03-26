@@ -30,10 +30,6 @@ def test_convert_csv_values_to_int_and_sort():
 
 def test_display_multiple_keys_sort_by_one():
     #works
-    print(f"starting sort {getcsv[['Names', 'Kills']].sort_values('Kills', ascending=False)}")
+    print(f"starting sort {getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False)}")
     
     assert getcsv['Names'][0]=='Raven 1', "The unsorted 0 slot was not Raven 1"
-
-    
- 
-   
