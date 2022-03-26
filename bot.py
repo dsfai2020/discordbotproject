@@ -35,6 +35,7 @@ async def on_message(message):
     squad= ["Sniper Class -- Falcon 8, Snake Eyes"]
     
     getcsv=pandas.read_csv("my_csv.csv")
+    getrebirth=pandas.read_csv("rebirth_csv.csv")
 
     if message.content == 'trehistory':
         response = random.choice(trehistory)
@@ -52,6 +53,15 @@ async def on_message(message):
     
     elif message.content == 'trekills':
         await message.channel.send(getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
+    
+    elif message.content == 'rebirthkills':
+        await message.channel.send(getrebirth[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
+    
+    elif message.content == 'rebirthkdr':
+        await message.channel.send(getrebirth[['Names', 'KDR']].sort_values(by='KDR', ascending=False))
+
+    elif message.content == 'rebirthwin%':
+        await message.channel.send(getrebirth[['Names', 'Top 5 Win %']].sort_values(by='Top 5 Win %', ascending=False))
 
 # @client.event
 # async def on_message(message):
