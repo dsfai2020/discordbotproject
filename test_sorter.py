@@ -3,6 +3,7 @@ from numpy import int32, int64
 import pandas
 import json
 import pytest
+import pickle
 
 #getcsv is a df object.  You don't need to put getcsv into another dataframe.
 getcsv=pandas.read_csv("my_csv.csv")
@@ -33,3 +34,39 @@ def test_display_multiple_keys_sort_by_one():
     print(f"starting sort {getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False)}")
     
     assert getcsv['Names'][0]=='Raven 1', "The unsorted 0 slot was not Raven 1"
+
+def test_avg_column():
+    print (f"Gettings the mean...{getcsv['Kills'].mean()}")
+    assert getcsv["Kills"].mean()==2169.625
+
+def test_mean_vs_user():
+    z=getcsv['Kills'].mean()
+    for each in getcsv['Kills']:
+        print(f'Heres the values...{each}')
+        if each>=z:
+            print(getcsv.loc[0, 'Kills'])
+    assert 9>100
+
+def test_adjust_index():
+    print(getcsv.set_index("Names"))
+    assert 55<9
+
+def test_specific_conditions_column():
+    print (f"Getting conditions {getcsv.loc[(getcsv['Kills'] >2000) |(getcsv['Avg Score'] > 2000)]}")
+    assert "did this work"==5
+
+def test_pickle_load():
+    x={"Profile": ['TRE Bot'], "Level": [0]}
+
+    with open('profiles_pickle.p', 'rb') as f:
+        z=pickle.load(f)
+        print(f"Here are your contents {z}")
+    assert 55==100
+
+def test_pickle_write():
+    x={"Profile": ['TRE Bot'], "Level": [0]}
+    with open('profiles_pickle.p', 'wb') as f:
+        pickle.dump(x, f)
+    assert 55==90
+    # add incrememnt not implemented yet
+    # may need a passed arg.

@@ -2,6 +2,7 @@ import os
 import discord
 import random
 import pandas
+import pickle
 
 from dotenv import load_dotenv
 
@@ -18,6 +19,19 @@ client=discord.Client()
 @client.event
 async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
+    x={"Profile": ['TRE Bot'], "Level": [0]}
+
+    #loads and increments at use
+    with open('profiles_pickle.p', 'rb') as f:
+        pickleobject=pickle.load(f)
+        #Auto Lvl the first slot.  It could be prepped into a dataframe in the future.
+        pickleobject['Level'][0]+=1
+        pickleobject['Profile'][0]=="TRE Bot"
+        print(f"Here are your contents {pickleobject}")
+    
+    #saves
+    with open('profiles_pickle.p', 'wb') as f:
+        pickle.dump(pickleobject, f)
 
 @client.event
 async def on_member_join(member):
@@ -62,6 +76,12 @@ async def on_message(message):
 
     elif message.content == 'rebirthwin%':
         await message.channel.send(getrebirth[['Names', 'Top 5 Win %']].sort_values(by='Top 5 Win %', ascending=False))
+
+    elif message.content == 'trebotlvl':
+        with open('profiles_pickle.p', 'rb') as f:
+            pickleobject=pickle.load(f)
+        await message.channel.send(f"TRE Bot lvl is at {pickleobject['Level'][0]}")
+
 
 # @client.event
 # async def on_message(message):
