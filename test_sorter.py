@@ -1,5 +1,5 @@
 from copy import error
-from numpy import int32, int64
+from numpy import dtype, int32, int64
 import pandas
 import json
 import pytest
@@ -49,11 +49,17 @@ def test_mean_vs_user():
 
 def test_adjust_index():
     print(getcsv.set_index("Names"))
-    assert 55<9
+    z=getcsv.set_index("Names")
+    print(getcsv[['Kills', 'Names']].dtypes)
+    print(getcsv['Kills'][0].dtype)
+    print(z.index)
+    assert str(getcsv['Kills'].dtypes)=='int64'
+    assert z.index.name=='Names'
 
-def test_specific_conditions_column():
-    print (f"Getting conditions {getcsv.loc[(getcsv['Kills'] >2000) |(getcsv['Avg Score'] > 2000)]}")
-    assert "did this work"==5
+def test_iso_row():
+    # This returns all the records with the condition listed.
+    print(getcsv.loc[getcsv['Kills'] >2000])
+    assert getcsv.loc(['Kills'][0]==2683), 'Data may have depreciated for Raven 1 please update test'
 
 def test_pickle_load():
     x={"Profile": ['TRE Bot'], "Level": [0]}
@@ -70,3 +76,4 @@ def test_pickle_write():
     assert 55==90
     # add incrememnt not implemented yet
     # may need a passed arg.
+
