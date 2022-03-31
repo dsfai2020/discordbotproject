@@ -67,6 +67,9 @@ async def on_message(message):
     
     elif message.content == 'trekills':
         await message.channel.send(getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
+
+    elif message.content == 'tretop10%':
+        await message.channel.send(getcsv[['Names', 'Top 10 Appearance %']].sort_values(by='Top 10 Appearance %', ascending=False))
     
     elif message.content == 'rebirthkills':
         await message.channel.send(getrebirth[['Names', 'Kills']].sort_values(by='Kills', ascending=False))

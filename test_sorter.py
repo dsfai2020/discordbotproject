@@ -39,6 +39,7 @@ def test_avg_column():
     print (f"Gettings the mean...{getcsv['Kills'].mean()}")
     assert getcsv["Kills"].mean()==2169.625
 
+#assert needed
 def test_mean_vs_user():
     z=getcsv['Kills'].mean()
     for each in getcsv['Kills']:
@@ -61,6 +62,7 @@ def test_iso_row():
     print(getcsv.loc[getcsv['Kills'] >2000])
     assert getcsv.loc(['Kills'][0]==2683), 'Data may have depreciated for Raven 1 please update test'
 
+#assert needed
 def test_pickle_load():
     x={"Profile": ['TRE Bot'], "Level": [0]}
 
@@ -69,6 +71,7 @@ def test_pickle_load():
         print(f"Here are your contents {z}")
     assert 55==100
 
+#assert needed
 def test_pickle_write():
     x={"Profile": ['TRE Bot'], "Level": [0]}
     with open('profiles_pickle.p', 'wb') as f:

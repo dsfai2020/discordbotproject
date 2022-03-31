@@ -17,3 +17,13 @@ The words below are in all caps.
 DISCORD_TOKEN
 DISCORD_GUILD
 
+# How are the Formulas Figured?
+
+Data that is made public from warzone Barracks via Records gives us a few metrics that we can draw upon.
+
+The two categories that are primarily used will be Rebirth and Warzone (Big Map) stats.
+
+# Warzone Big Map
+
+# Rebirth
+
