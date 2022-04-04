@@ -59,6 +59,9 @@ async def on_message(message):
         rosterprompt=['Which member of the TRE would you like to learn about?']
         await message.channel.send(rosterprompt[0])
 
+    elif message.content == 'tretotalwins':
+        await message.channel.send(getcsv[['Names', 'Wins']].sort_values(by='Wins', ascending=False))
+
     elif message.content == 'trekdr':
         await message.channel.send(getcsv[["Names", "KDR"]].sort_values(by='KDR', ascending=False))
 
@@ -70,7 +73,19 @@ async def on_message(message):
 
     elif message.content == 'tretop10%':
         await message.channel.send(getcsv[['Names', 'Top 10 Appearance %']].sort_values(by='Top 10 Appearance %', ascending=False))
-    
+    #new
+    elif message.content == 'tretop10win%':
+        await message.channel.send(getcsv[['Names', 'Top 10 Win %']].sort_values(by='Top 10 Win %', ascending=False))
+    #new
+    elif message.content == 'trelikelytoengage':
+        await message.channel.send(getcsv[['Names', 'Likely to Engage Rating']].sort_values(by='Likely to Engage Rating', ascending=False))
+    #new
+    elif message.content == 'treweratio':
+        await message.channel.send(getcsv[['Names', 'Wins to Engagement Rating Ratio']].sort_values(by='Wins to Engagement Rating Ratio', ascending=False))
+
+    elif message.content == 'rebirthwins':
+        await message.channel.send(getrebirth[['Names', 'Wins']].sort_values(by='Wins', ascending=False))
+
     elif message.content == 'rebirthkills':
         await message.channel.send(getrebirth[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
     
