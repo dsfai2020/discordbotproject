@@ -59,7 +59,7 @@ async def on_message(message):
         rosterprompt=['Which member of the TRE would you like to learn about?']
         await message.channel.send(rosterprompt[0])
 
-    elif message.content == 'tretotalwins':
+    elif message.content == 'trewins':
         await message.channel.send(getcsv[['Names', 'Wins']].sort_values(by='Wins', ascending=False))
 
     elif message.content == 'trekdr':
