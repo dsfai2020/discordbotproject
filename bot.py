@@ -59,23 +59,36 @@ async def on_message(message):
         rosterprompt=['Which member of the TRE would you like to learn about?']
         await message.channel.send(rosterprompt[0])
 
-    elif message.content == 'trewins':
-        await message.channel.send(getcsv[['Names', 'Wins']].sort_values(by='Wins', ascending=False))
+    elif message.content == 'trekills':
+        await message.channel.send(getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
+
+    elif message.content == 'trekpg':
+        await message.channel.send(getcsv[['Names', 'Avg Kills PG']].sort_values(by='Avg Kills PG', ascending=False))
+
+    elif message.content == 'tredpg':
+        await message.channel.send(getcsv[['Names', 'Avg Deaths PG']].sort_values(by='Avg Deaths PG', ascending=False))
 
     elif message.content == 'trekdr':
         await message.channel.send(getcsv[["Names", "KDR"]].sort_values(by='KDR', ascending=False))
+    
+    elif message.content == 'trerevives':
+        await message.channel.send(getcsv[["Names", "Avg Revives PG"]].sort_values(by='Avg Revives PG', ascending=False))
+
+    elif message.content == 'trecontracts':
+        await message.channel.send(getcsv[["Names", "Avg Contracts PG"]].sort_values(by='Avg Contracts PG', ascending=False))
 
     elif message.content == 'trescore':
         await message.channel.send(getcsv[["Names", "Avg Score"]].sort_values(by='Avg Score', ascending=False))
     
-    elif message.content == 'trekills':
-        await message.channel.send(getcsv[['Names', 'Kills']].sort_values(by='Kills', ascending=False))
-
     elif message.content == 'tretop10%':
         await message.channel.send(getcsv[['Names', 'Top 10 Appearance %']].sort_values(by='Top 10 Appearance %', ascending=False))
     #new
     elif message.content == 'tretop10win%':
         await message.channel.send(getcsv[['Names', 'Top 10 Win %']].sort_values(by='Top 10 Win %', ascending=False))
+
+    elif message.content == 'trewins':
+        await message.channel.send(getcsv[['Names', 'Wins']].sort_values(by='Wins', ascending=False))
+
     #new
     elif message.content == 'trelikelytoengage':
         await message.channel.send(getcsv[['Names', 'Likely to Engage Rating']].sort_values(by='Likely to Engage Rating', ascending=False))
