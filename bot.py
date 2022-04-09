@@ -79,9 +79,16 @@ async def on_message(message):
 
     elif message.content == 'trescore':
         await message.channel.send(getcsv[["Names", "Avg Score"]].sort_values(by='Avg Score', ascending=False))
+
+    elif message.content == 'tretop5%':
+        await message.channel.send(getcsv[['Names', 'Top 5 Appearance %']].sort_values(by='Top 5 Appearance %', ascending=False))
     
     elif message.content == 'tretop10%':
         await message.channel.send(getcsv[['Names', 'Top 10 Appearance %']].sort_values(by='Top 10 Appearance %', ascending=False))
+    
+    elif message.content == 'tretop25%':
+        await message.channel.send(getcsv[['Names', 'Top 25 Appearance %']].sort_values(by='Top 25 Appearance %', ascending=False))
+
     #new
     elif message.content == 'tretop10win%':
         await message.channel.send(getcsv[['Names', 'Top 10 Win %']].sort_values(by='Top 10 Win %', ascending=False))
