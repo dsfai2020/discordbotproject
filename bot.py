@@ -120,6 +120,9 @@ async def on_message(message):
             pickleobject=pickle.load(f)
         await message.channel.send(f"TRE Bot lvl is at {pickleobject['Level'][0]}")
 
+    elif message.content == 'missions':
+        await message.channel.send("Earn TRE Leaderboard EXP by completing missions.  Mission announcements coming soon...")
+
 
 
 # @client.event
