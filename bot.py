@@ -1,19 +1,20 @@
+from multiprocessing import context
 import os
 import discord
 import random
 import pandas
 import pickle
-
 from dotenv import load_dotenv
-
-
+from discord.ext import commands
 
 load_dotenv()
 TOKEN=os.getenv('DISCORD_TOKEN')
 GUILD=os.getenv('DISCORD_GUILD')
 
+
 #This is the client Object
-client=discord.Client()
+# client=discord.Client()
+client = commands.Bot(command_prefix=__import__("config").PREFIX)
 
 #Triggers on client events
 @client.event
@@ -120,9 +121,28 @@ async def on_message(message):
             pickleobject=pickle.load(f)
         await message.channel.send(f"TRE Bot lvl is at {pickleobject['Level'][0]}")
 
+    # not implemented
     elif message.content == 'missions':
         await message.channel.send("Earn TRE Leaderboard EXP by completing missions.  Mission announcements coming soon...")
 
+    # not implemented
+    elif message.content == 'user':
+        z=client.get_user(950992258654674975)
+        await message.channel.send(f"Here is the user name {str(z)}")
+    
+    elif '/embed' in message.content.lower():
+        embed = discord.Embed(
+            title='Embed',
+            description='Welcome to The TRE Channel',
+            color = discord.Color.random()
+        )
+        await message.channel.send(embed=embed)
+
+   
+       
+            
+
+        
 
 
 # @client.event
