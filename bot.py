@@ -6,6 +6,7 @@ import pandas
 import pickle
 from dotenv import load_dotenv
 from discord.ext import commands
+import datetime
 
 load_dotenv()
 TOKEN=os.getenv('DISCORD_TOKEN')
@@ -132,8 +133,8 @@ async def on_message(message):
     
     elif '/embed' in message.content.lower():
         embed = discord.Embed(
-            title='Embed',
-            description='Welcome to The TRE Channel',
+            title='Bounty Challenge 1: Win a Rebirth Island without any Redeploys from all squadmates and less than 8 Kills combined.',
+            description='This is an open bounty.  (Screen shot post if this challenge is met)',
             color = discord.Color.random()
         )
         await message.channel.send(embed=embed)
