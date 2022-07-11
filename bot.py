@@ -133,10 +133,16 @@ async def on_message(message):
     
     elif '/embed' in message.content.lower():
         embed = discord.Embed(
-            title='Bounty Challenge 1: Win a Rebirth Island without any Redeploys from all squadmates and less than 8 Kills combined.',
-            description='This is an open bounty.  (Screen shot post if this challenge is met)',
+            title='Bounty Challenge \n\nObtain a Victory at Fortunes Keep without a SINGLE redeployment',
+            description='Head North...Head North!! TRE...A new Challenge is here!',
             color = discord.Color.random()
         )
+        embed.set_image(url='https://cdn.discordapp.com/avatars/950992258654674975/6fcbd43fbc3b9ed8262a5605f2a81095.png?size=256')
+        embed.add_field(name='Squad', value='Morning, Day or Night Crew', inline=False)
+        embed.add_field(name='Redeployments allowed', value='Zero', inline=False)
+        embed.add_field(name='Squad Size', value='4', inline=False)
+        embed.add_field(name='Proof of Action', value='Post Screenshot', inline=False)
+        embed.add_field(name='Exp Awarded', value='1 Mission Point', inline=True)
         await message.channel.send(embed=embed)
 
    
